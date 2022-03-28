@@ -8,7 +8,7 @@ diagExamples = [
         [["ext", 5, "m"],"conc",  "All s are p"]],
 	["Celarent (1st figure)",
 	    [["new_all_some", "m", "¬p"], "prem", "No m is p"],
-        [["new_all_some", "s", "m"], "premi", "All s are m"],
+        [["new_all_some", "s", "m"], "prem", "All s are m"],
         [["conv",2,"m"]],
         [["inf",1,3]],
 		[["conv",4,"s"]],
