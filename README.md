@@ -8,3 +8,5 @@ Authors:
 
 To do:
 - Exercises.
+- Logo
+- PDF with operations.
