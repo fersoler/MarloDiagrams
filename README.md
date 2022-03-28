@@ -8,4 +8,3 @@ Authors:
 
 To do:
 - Exercises.
-- Etc.
