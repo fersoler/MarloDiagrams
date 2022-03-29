@@ -1,6 +1,7 @@
 html, body {
     margin:0;
     padding:0;
+    width: 1650px;
     border-width: 6px;
     border-style: solid;
     border-color:#ffffff;
@@ -60,10 +61,10 @@ a:hover {
   
 /* CSS */
 .button-13 {
-    background-color: #fff;
-    border: 1px solid #d5d9d9;
+    background-color: rgb(192, 189, 189);
+    border: 1px solid #7a7a7a;
     border-radius: 8px;
-    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    box-shadow: rgba(59, 59, 59, 0.5) 0 2px 5px 0;
     box-sizing: border-box;
     color: #0f1111;
     cursor: pointer;
@@ -83,7 +84,7 @@ a:hover {
 }
   
 .button-13:hover {
-    background-color: #f7fafa;
+    background-color: #a3b6b6;
 }
   
 .button-13:focus {
@@ -135,4 +136,10 @@ input[type=text] {
 
 .outer {
   overflow-x: scroll;
+}
+
+.center {
+    margin: auto;
+    width: 80%;
+    padding: 10px;
 }
