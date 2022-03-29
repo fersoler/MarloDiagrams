@@ -3,9 +3,9 @@ html, body {
     padding:0;
     border-width: 6px;
     border-style: solid;
-    border-color: #e0dddd;
+    border-color:#ffffff;
     font-family: verdana, helvetica, arial, sans-serif;
-    background-color: #e0dddd;
+    background-color: #ffffff;
 }
 
 input, select {
@@ -57,8 +57,7 @@ a:hover {
     size: 16px;
     color:#cc2a0e;
 }
-
-
+  
 /* CSS */
 .button-13 {
     background-color: #fff;
