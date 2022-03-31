@@ -15,7 +15,7 @@ TODO
 // Global variables
 var currentDiags = [];
 
-const initx = 100;
+const initx = 110;  // 100
 const inity = 80;
 var px = initx;
 var py = inity;

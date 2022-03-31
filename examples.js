@@ -79,7 +79,7 @@ diagExamples = [
 	    [["ext", 4, "m"], "conc", "Some s are p"]],
 	["Felapton (3rd figure)",
     	[["new_all_some", "m", "¬p"], "prem", "No m is p"],
-    	[["new_all_some", "m", "s"], "prem", "Some m are s"],
+    	[["new_all_some", "m", "s"], "prem", "All m are s"],
     	[["inf", 1, 2]],
     	[["conv", 3, "s"]],
 	    [["ext", 4, "m"], "conc", "Some s are not p"]],
