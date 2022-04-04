@@ -66,7 +66,7 @@ diagExamples = [
     	[["conv", 3, "s"]],
 	[["ext", 4, "m"], "conc", "Some s are p"]],
 	["Disamis (3rd figure)",
-    	[["new_some_some", "m", "p"], "prem", "All m are p"],
+    	[["new_some_some", "m", "p"], "prem", "Some m are p"],
     	[["new_all_some", "m", "s"], "prem", "All m are s"],
     	[["inf", 1, 2]],
     	[["conv", 3, "s"]],
