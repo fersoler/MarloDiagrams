@@ -58,6 +58,13 @@ a:hover {
     size: 16px;
     color:#cc2a0e;
 }
+
+.instr {
+    margin: 7px;
+    size: 24px;
+    font-weight: bold;
+    color:green;
+}
   
 /* CSS */
 .button-13 {

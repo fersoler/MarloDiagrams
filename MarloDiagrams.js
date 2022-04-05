@@ -14,6 +14,8 @@ TODO
 
 // Global variables
 var currentDiags = [];
+var exerciseNumber = -1;     // To globally set the exercise number
+var doingExercise = false;   // To detect when the user is solving an exercise and chech the solution
 
 const initx = 110;  // 100
 const inity = 80;
@@ -26,6 +28,12 @@ function testMain() {
     //diag_text_view(diag1);
     document.getElementById("erricsubj").innerHTML = "&nbsp;";
     document.getElementById("erricpred").innerHTML = "&nbsp;";
+
+    if(doingExercise && diagExercises[exerciseNumber][1] != "creation"){
+
+        document.getElementById("erricsubj").innerHTML = "Creation of new diagrams is not allowed in the current exercise. Work with existing diagrams by using the other operations.";
+        return;
+    }
 
     readSubj = readProp(document.getElementById("icsubj").value);
     readPred = readProp(document.getElementById("icpred").value);
@@ -194,6 +202,116 @@ function testExt() {
     };
 };
 
+function runExercise() {
+    currentDiags = [];
+    px = initx;
+    py = inity;
+    document.getElementById("panelSVG").innerHTML = "";
+    // Borrar mensajes de error
+    document.getElementById("erricsubj").innerHTML = "&nbsp;";
+    document.getElementById("erricpred").innerHTML = "&nbsp;";
+
+    doingExercise = true;
+    exerciseNumber = parseInt(document.getElementById("exerN").value);
+    exercise = diagExercises[exerciseNumber];
+
+    document.getElementById("exercHint").innerHTML = exercise[2];
+
+    example = exercise[4];
+    // Draw the hints diagrams
+    var color;
+    var otherText;
+    for (var i = 0; i < example.length; i++) {
+        color = color1;
+        otherText = "";
+        if (example[i].length > 1) {
+            if (example[i][1] == "prem") {
+                color = "green";
+            }
+            else {
+                color = "blue";
+            };
+            otherText = example[i][2];
+        };
+        
+        var datos = example[i][0];
+
+        switch (datos[0]) {
+            case "new_all_all":
+                (function (datos, otherText, color) {
+                    setTimeout(
+                        function () {
+                            addDiagram(new_diagram_All_All(datos[1], datos[2]), 
+                            "Premise",otherText, color)
+                        }, i * 1000);
+                })(datos, otherText, color);
+                break;
+            case "new_all_some":
+                (function (datos, otherText, color) {
+                    setTimeout(
+                        function () {
+                            addDiagram(new_diagram_All_Some(datos[1], datos[2]), 
+                            "Premise",otherText, color)
+                        }, i * 1000);
+                })(datos, otherText, color);
+                break;
+            case "new_some_all":
+                (function (datos, otherText, color) {
+                    setTimeout(
+                        function () {
+                            addDiagram(new_diagram_Some_All(datos[1], datos[2]), 
+                            "Premise",otherText, color)
+                        }, i * 1000);
+                })(datos, otherText, color);
+                break;
+            case "new_some_some":
+                (function (datos, otherText, color) {
+                    setTimeout(
+                        function () {
+                            addDiagram(new_diagram_Some_Some(datos[1], datos[2]), 
+                            "Premise",otherText, color)
+                        }, i * 1000);
+                })(datos, otherText, color);
+                break;
+            case "conv":
+                (function (datos, otherText, color, currentDiags) {
+                    setTimeout(
+                        function () {
+                            addDiagram(conversion(currentDiags[datos[1]-1], datos[2]),`Conv(D${datos[1]},${datos[2]})`, otherText, color);
+                        }, i * 1000);
+                })(datos, otherText, color, currentDiags);
+                break;
+            case "inf":
+                (function (datos, otherText, color, currentDiags) {
+                    setTimeout(
+                        function () {
+                            addDiagram(inference(currentDiags[datos[1]-1], currentDiags[datos[2]-1]), 
+                            `D${datos[1]}\u2295D${datos[2]}`, otherText, color)
+                        }, i * 1000);
+                })(datos, otherText, color, currentDiags);
+                break;
+            case "ext":
+                (function (datos, otherText, color, currentDiags) {
+                    setTimeout(
+                        function () {
+                            addDiagram(extraction(currentDiags[datos[1]-1], datos[2]), `Ext(D${datos[1]},${datos[2]})`, otherText, color)
+                        }, i * 1000);
+                })(datos, otherText, color, currentDiags);
+                break;
+            case "trans":
+                (function (datos, otherText, color, currentDiags) {
+                    setTimeout(
+                        function () {
+                            addDiagram(transformation(currentDiags[datos[1]-1]), `Tr(D${datos[1]})`, otherText, color)
+                        }, i * 1000);
+                })(datos, otherText, color, currentDiags);
+                break;
+
+        };
+    };
+
+};
+
 
 function runExample() {
     currentDiags = [];
@@ -203,6 +321,8 @@ function runExample() {
     // Borrar mensajes de error
     document.getElementById("erricsubj").innerHTML = "&nbsp;";
     document.getElementById("erricpred").innerHTML = "&nbsp;";
+    // Borrar mensaje de ejercicio
+    document.getElementById("exercHint").innerHTML = "&nbsp;";
 
     example = diagExamples[parseInt(document.getElementById("exampleN").value)].slice(1);
     
@@ -363,10 +483,19 @@ Funciones para la interfaz
 */
 
 function addDiagram(newD, textShow1, textShow2, color = color1) {
+
+    var diagColor = color;    
+    if(doingExercise && (JSON.stringify(sortDiagram(newD)) == JSON.stringify(sortDiagram(diagExercises[exerciseNumber][3])))){
+        diagColor = "blue";
+        document.getElementById("exercHint").innerHTML += "<br/><div style=\"color:blue;\">Congratulations! You have solved the exercise.</div>";
+        doingExercise = false;
+        exerciseNumber = -1;
+    }
+
     currentDiags[currentDiags.length] = newD;
     panel = document.getElementById("panelSVG");
     if (currentDiags.length <= 18) {
-        drawDiagram(newD, px, py, color, panel, currentDiags.length, textShow1, textShow2);
+        drawDiagram(newD, px, py, diagColor, panel, currentDiags.length, textShow1, textShow2);
         if (currentDiags.length % 6 > 0) {
             px += 250;
         } else {
@@ -474,6 +603,7 @@ Creation of Marlo Diagrams
 
 // Create universal-universal diagram
 function new_diagram_All_All(p1, p2) {
+
     var diagram = {
         sub: p1,
         all: [p2],

@@ -9,6 +9,8 @@
         <script src="drawDiagramsSVG.js"></script>
         <script src="examples.js"></script>
         <script src="examplesMenu.js"></script>
+        <script src="exercises.js"></script>
+        <script src="exercisesMenu.js"></script>
         <script type="text/javascript">
             window.addEventListener('beforeunload', function (e) {
                 if(currentDiags.length > 0){
@@ -25,9 +27,9 @@
         -->Look at the <a href="https://diagramademarlo.wordpress.com/silogismo-por-razonamiento-diagramatico-innovacion/">Marlo Diagrams</a> page on Wordpress.</p>
         <div id="erricsubj" class="error">&nbsp;</div>
         <div id="erricpred" class="error"> &nbsp;</div>
-    <p>&nbsp;</p>
+        <p>&nbsp;</p>
         <form>
-            <table width="1200">
+            <table width="1600">
                 <tr>
                     <td colspan="2" width="10%">
                         <b>Creation</b>
@@ -46,6 +48,9 @@
                     </td>
                     <td colspan="2" width="20%">
                         <b>Run classic examples</b>
+                    </td>
+                    <td colspan="2" width="20%">
+                        <b>Practice with exercises</b>
                     </td>
                 </tr>
                 <!-- Input 1 -->
@@ -72,6 +77,13 @@
                           <!-- Content here -->
                         </select>
                     </td>
+                    <!-- Exercises -->   
+                    <td>Exercise:</td>                           
+                    <td class="box">
+                        <select name="exerN" id="exerN">
+                          <!-- Content here -->
+                        </select>
+                    </td>
                 </tr>
                 <!-- Input 2 -->
                 <tr>
@@ -90,6 +102,8 @@
                     <td><label form="inf2">Literal:</label></td>
                     <td><input type="text" id="extCP" name="extCP" maxlength="2" size="2"></td>
                     <!--Examples -->
+                    <td colspan="2">&nbsp;</td>
+                    <!--Exercises -->
                     <td colspan="2">&nbsp;</td>
                 </tr>
                 <!-- Select -->
@@ -114,6 +128,8 @@
                     <td colspan="2">&nbsp;</td>
                     <!--Examples -->
                     <td colspan="2">&nbsp;</td>
+                    <!--Exercises -->
+                    <td colspan="2">&nbsp;</td>
                 </tr>
                 <!-- Button -->
                 <tr>
@@ -129,15 +145,20 @@
                     <td colspan="2"><input type="button" class="button-13" onclick="testExt()" value="Extract" /></td>
                     <!-- Examples -->
                     <td colspan="2"><input type="button" class="button-13" onclick="runExample()" value="Run" /></td>
+                    <!-- Exercises -->
+                    <td colspan="2"><input type="button" class="button-13" onclick="runExercise()" value="Go!" /></td>
                 </tr>
             </table>
         </form>
-        <p></p>            
+        <p>
+            <div id="exercHint" class="instr"> &nbsp;</div>             
+        </p>            
         <div class="center"><svg height="750" width="1500" id="panelSVG"></svg></div>
     
     </body>
     <script  type="text/javascript">
-        document.onload = setExamples();
+        document.onload = setExamples(); 
+        document.onload = setExercises();
     </script>
     <div>
         <div style="text-align: center;"> 
