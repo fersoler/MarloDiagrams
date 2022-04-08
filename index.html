@@ -1,175 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link type="text/css" href="base.css" rel="stylesheet">
-    <head>
-        <meta charset="utf-8"></meta>
-        <title>Marlo Diagrams</title>
-        <!--<script src="raphael.js"></script>-->
-        <script src="MarloDiagrams.js"></script>
-        <script src="drawDiagramsSVG.js"></script>
-        <script src="examples.js"></script>
-        <script src="examplesMenu.js"></script>
-        <script src="exercises.js"></script>
-        <script src="exercisesMenu.js"></script>
-        <script type="text/javascript">
-            window.addEventListener('beforeunload', function (e) {
-                if(currentDiags.length > 0){
-                    e.preventDefault();
-                    e.returnValue = '';
-                };
-            });
-        </script>
-     </head>
-    <body>
-        <img src="./img/marloDiag.jpg" title="Marlo Diagrams" alt="Logo Marlo Diagrams" style="float: right; border: 0;" hspace="0" vspace="0"/>
-        <h1>Marlo Diagrams</h1>
-        <p><!-- You can read a <a href="./doc/main.pdf">document</a> (work in progress) with formal definitions of Marlo Diagrams and operations with them. 
-        -->Look at the <a href="https://diagramademarlo.wordpress.com/silogismo-por-razonamiento-diagramatico-innovacion/">Marlo Diagrams</a> page on Wordpress.</p>
-        <div id="erricsubj" class="error">&nbsp;</div>
-        <div id="erricpred" class="error"> &nbsp;</div>
-        <p>&nbsp;</p>
-        <form>
-            <table width="1600">
+<link type="text/css" href="base.css" rel="stylesheet">
+
+<head>
+    <meta charset="utf-8">
+    </meta>
+    <title>Marlo Diagrams</title>
+    <!--<script src="raphael.js"></script>-->
+    <script src="MarloDiagrams.js"></script>
+    <script src="drawDiagramsSVG.js"></script>
+    <script src="examples.js"></script>
+    <script src="examplesMenu.js"></script>
+    <script src="exercises.js"></script>
+    <script src="exercisesMenu.js"></script>
+    <script type="text/javascript">
+        window.addEventListener('beforeunload', function (e) {
+            if (currentDiags.length > 0) {
+                e.preventDefault();
+                e.returnValue = '';
+            };
+        });
+    </script>
+</head>
+
+<body>
+    <img src="./img/marloDiag.jpg" title="Marlo Diagrams" alt="Logo Marlo Diagrams" style="float: right; border: 0;"
+        hspace="0" vspace="0" />
+    <h1>Marlo Diagrams</h1>
+    <p>
+        <!-- You can read a <a href="./doc/main.pdf">document</a> (work in progress) with formal definitions of Marlo Diagrams and operations with them. 
+        -->Look at the <a
+            href="https://diagramademarlo.wordpress.com/silogismo-por-razonamiento-diagramatico-innovacion/">Marlo
+            Diagrams</a> page on Wordpress.
+    </p>
+    <div id="erricsubj" class="error">&nbsp;</div>
+    <div id="erricpred" class="error"> &nbsp;</div>
+    <p>&nbsp;</p>
+
+    <form>
+
+        <table width="1600">
+            <tr>
+                <td width="10%">
+                    <!--  Creation  -->
+                    <table>
+                        <tr>
+                            <td colspan="2">
+                                <b>Creation</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label form="lcsubj">Subj:</label>
+                            </td>
+                            <td><input type="text" id="icsubj" name="icsubj" maxlength="2" size="2">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label form="lcpred">Pred:</label>
+                            </td>
+                            <td><input type="text" id="icpred" name="icpred" maxlength="2" size="2">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label form="lctype">Type:</label>
+                            </td>
+                            <td class="box">
+                                <select name="ictype" id="ictype">
+                                    <option value="all-all">T-T</option>
+                                    <option value="all-some">T-P</option>
+                                    <option value="some-all">P-T</option>
+                                    <option value="some-some">P-P</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><input type="button" class="button-13" onclick="testMain()"
+                                    value="Create" /></td>
+                        </tr>
+                    </table>
+                </td>
+                <!-- Conversion -->
+                <td width="10%">
+                    <table>
+                        <tr>
+                            <td colspan="2">
+                                <b>Conversion</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label form="convD">Diagram:</label>
+                            </td>
+                            <td><input type="text" id="diaCN" name="diaCN" maxlength="2" size="2">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label form="inf2">Literal:</label>
+                            </td>
+                            <td><input type="text" id="diaCP" name="diaCP" maxlength="2" size="2">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <td colspan="2">&nbsp;</td>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" class="button-13" onclick="testConv()" value="Convert" /></td>
+            </tr>
+        </table>
+        </td>
+        <td width="10%">
+            <!-- Transformation -->
+            <table>
                 <tr>
-                    <td colspan="2" width="10%">
-                        <b>Creation</b>
-                    </td>
-                    <td colspan="2" width="10%">
-                        <b>Conversion</b>
-                    </td>
-                    <td colspan="2" width="10%">
+                    <td colspan="2">
                         <b>Transformation</b>
                     </td>
-                    <td colspan="2" width="10%">
+                </tr>
+                <tr>
+                    <td>
+                        <label form="tr1">Diagram:</label>
+                    </td>
+                    <td><input type="text" id="diaT" name="diaT" maxlength="2" size="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <td colspan="2">&nbsp;</td>
+        </td>
+        </tr>
+        <tr>
+            <td>
+            <td colspan="2">&nbsp;</td>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" class="button-13" onclick="testTr()" value="Transform" /></td>
+        </tr>
+        </table>
+        </td>
+        <td width="10%">
+            <!--  Inference  -->
+            <table>
+                <tr>
+                    <td colspan="2">
                         <b>Inference</b>
                     </td>
-                    <td colspan="2" width="10%">
+                </tr>
+                <tr>
+                    <td>
+                        <label form="inf1">Diag. 1:</label>
+                    </td>
+                    <td><input type="text" id="dia1" name="dia1" maxlength="2" size="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label form="inf2">Diag. 2:</label>
+                    </td>
+                    <td><input type="text" id="dia2" name="dia2" maxlength="2" size="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <td colspan="2">&nbsp;</td>
+        </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" class="button-13" onclick="testInf()" value="Infer" /></td>
+        </tr>
+        </table>
+        </td>
+        <td width="10%">
+            <!-- Extraction   -->
+            <table>
+                <tr>
+                    <td colspan="2">
                         <b>Extraction</b>
                     </td>
-                    <td colspan="2" width="20%">
+                </tr>
+                <tr>
+                    <td>
+                        <label form="extD">Diagram:</label>
+                    </td>
+                    <td><input type="text" id="extCN" name="extCN" maxlength="2" size="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label form="inf2">Literal:</label>
+                    </td>
+                    <td><input type="text" id="extCP" name="extCP" maxlength="2" size="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <td colspan="2">&nbsp;</td>
+        </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" class="button-13" onclick="testExt()" value="Extract" /></td>
+        </tr>
+        </table>
+        </td>
+        <td width="20%">
+            <!-- Examples   -->
+            <table>
+                <tr>
+                    <td colspan="2">
                         <b>Run classic examples</b>
                     </td>
-                    <td colspan="2" width="20%">
+                </tr>
+                <tr>
+                    <td>
+                        Example:</td>
+                    <td class="box">
+                        <select name="exampleN" id="exampleN">
+                            <!-- Content here -->
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <td colspan="2">&nbsp;</td>
+        </td>
+        </tr>
+        <tr>
+            <td>
+            <td colspan="2">&nbsp;</td>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" class="button-13" onclick="runExample()" value="Run" /></td>
+        </tr>
+        </table>
+        </td>
+        <td width="20%">
+            <!-- Exercises   -->
+            <table>
+                <tr>
+                    <td colspan="2">
                         <b>Practice with exercises</b>
                     </td>
                 </tr>
-                <!-- Input 1 -->
                 <tr>
-                    <!-- Creation -->
-                    <td><label form="lcsubj">Subj:</label></td>
-                    <td><input type="text" id="icsubj" name="icsubj" maxlength="2" size="2"></td>
-                    <!-- Conversion -->
-                    <td><label form="convD">Diagram:</label></td>
-                    <td><input type="text" id="diaCN" name="diaCN" maxlength="2" size="2"></td>
-                    <!-- Transform -->
-                    <td><label form="tr1">Diagram:</label></td>
-                    <td><input type="text" id="diaT" name="diaT" maxlength="2" size="2"></td>
-                    <!-- Inference -->
-                    <td><label form="inf1">Diag. 1:</label></td>
-                    <td><input type="text" id="dia1" name="dia1" maxlength="2" size="2"></td>                                
-                    <!-- Extraction -->
-                    <td><label form="extD">Diagram:</label></td>
-                    <td><input type="text" id="extCN" name="extCN" maxlength="2" size="2"></td>  
-                    <!-- Examples -->   
-                    <td>Example:</td>                           
-                    <td class="box">
-                        <select name="exampleN" id="exampleN">
-                          <!-- Content here -->
-                        </select>
-                    </td>
-                    <!-- Exercises -->   
-                    <td>Exercise:</td>                           
+                    <td>
+                        Exercise:</td>
                     <td class="box">
                         <select name="exerN" id="exerN">
-                          <!-- Content here -->
+                            <!-- Content here -->
                         </select>
                     </td>
                 </tr>
-                <!-- Input 2 -->
                 <tr>
-                    <!-- Creation -->
-                    <td><label form="lcpred">Pred:</label></td>
-                    <td><input type="text" id="icpred" name="icpred" maxlength="2" size="2"></td>
-                    <!-- Conversion -->
-                    <td><label form="inf2">Literal:</label></td>
-                    <td><input type="text" id="diaCP" name="diaCP" maxlength="2" size="2"></td> 
-                    <!-- Transform -->
+                    <td>
                     <td colspan="2">&nbsp;</td>
-                    <!-- Inference -->
-                    <td><label form="inf2">Diag. 2:</label></td>
-                    <td><input type="text" id="dia2" name="dia2" maxlength="2" size="2"></td>
-                    <!-- Extraction -->
-                    <td><label form="inf2">Literal:</label></td>
-                    <td><input type="text" id="extCP" name="extCP" maxlength="2" size="2"></td>
-                    <!--Examples -->
-                    <td colspan="2">&nbsp;</td>
-                    <!--Exercises -->
-                    <td colspan="2">&nbsp;</td>
-                </tr>
-                <!-- Select -->
-                <tr>
-                    <!-- Creation -->
-                    <td><label form="lctype">Type:</label></td>
-                    <td class="box">
-                        <select name="ictype" id="ictype">
-                            <option value="all-all">T-T</option>
-                            <option value="all-some">T-P</option>
-                            <option value="some-all">P-T</option>
-                            <option value="some-some">P-P</option>
-                        </select>
-                    </td>
-                    <!-- Conversion -->
-                    <td colspan="2">&nbsp;</td>
-                    <!-- Transform -->
-                    <td colspan="2">&nbsp;</td>
-                    <!-- Inference -->
-                    <td colspan="2">&nbsp;</td>
-                    <!-- Extraction -->
-                    <td colspan="2">&nbsp;</td>
-                    <!--Examples -->
-                    <td colspan="2">&nbsp;</td>
-                    <!--Exercises -->
-                    <td colspan="2">&nbsp;</td>
-                </tr>
-                <!-- Button -->
-                <tr>
-                    <!-- Creation -->
-                    <td colspan="2"><input type="button" class="button-13" onclick="testMain()" value="Create" /></td>
-                    <!-- Conversion -->
-                    <td colspan="2"><input type="button" class="button-13" onclick="testConv()" value="Convert" /></td>
-                    <!-- Transform -->
-                    <td colspan="2"><input type="button" class="button-13" onclick="testTr()" value="Transform" /></td>
-                    <!-- Inference -->
-                    <td colspan="2"><input type="button" class="button-13" onclick="testInf()" value="Infer" /></td>
-                    <!-- Extraction -->
-                    <td colspan="2"><input type="button" class="button-13" onclick="testExt()" value="Extract" /></td>
-                    <!-- Examples -->
-                    <td colspan="2"><input type="button" class="button-13" onclick="runExample()" value="Run" /></td>
-                    <!-- Exercises -->
-                    <td colspan="2"><input type="button" class="button-13" onclick="runExercise()" value="Go!" /></td>
-                </tr>
-            </table>
-        </form>
-        <p>
-            <div id="exercHint" class="instr"> &nbsp;</div>             
-        </p>            
-        <div class="center"><svg height="750" width="1500" id="panelSVG"></svg></div>
-    
-    </body>
-    <script  type="text/javascript">
-        document.onload = setExamples(); 
-        document.onload = setExercises();
-    </script>
-    <div>
-        <div style="text-align: center;"> 
-        <img src="./img/logoGrupo.jpg" title="Grupo de Lógica Lenguaje e Información" alt="Logo GILLIUS"  height="80px" hspace="8" vspace="2"/>
-        <img src="./img/logoUS.jpg" title="Universidad de Sevilla" alt="Logo US" height="80px" hspace="8" vspace="2"/>
-        <img src="./img/logoUH.jpg" title="Universidad de Huelva" alt="Logo UH" height="80px" hspace="8" vspace="2"/>        
-        <img src="./img/ministerio.jpg" title="Ministerio de Universidades" alt="Logo Ministerio de Universidades" height="80px" hspace="8" vspace="2"/>
-        <img src="./img/europe.jpg" title="Financiado por la Unión Europea" height="80px" alt="Logo NextGenerationEU" hspace="0" vspace="2"/>
+        </td>
+        </tr>
+        <tr>
+            <td>
+            <td colspan="2">&nbsp;</td>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" class="button-13" onclick="runExercise()" value="Go!" /></td>
+        </tr>
+        </table>
+        </td>
+        </tr>
+        </table>
+
+    </form>
+    <p>
+    <div id="exercHint" class="instr"> &nbsp;</div>
+    </p>
+    <div class="center"><svg height="750" width="1500" id="panelSVG"></svg></div>
+
+</body>
+<script type="text/javascript">
+    document.onload = setExamples();
+    document.onload = setExercises();
+</script>
+<div>
+    <div style="text-align: center;">
+        <img src="./img/logoGrupo.jpg" title="Grupo de Lógica Lenguaje e Información" alt="Logo GILLIUS" height="80px"
+            hspace="8" vspace="2" />
+        <img src="./img/logoUS.jpg" title="Universidad de Sevilla" alt="Logo US" height="80px" hspace="8" vspace="2" />
+        <img src="./img/logoUH.jpg" title="Universidad de Huelva" alt="Logo UH" height="80px" hspace="8" vspace="2" />
+        <img src="./img/ministerio.jpg" title="Ministerio de Universidades" alt="Logo Ministerio de Universidades"
+            height="80px" hspace="8" vspace="2" />
+        <img src="./img/europe.jpg" title="Financiado por la Unión Europea" height="80px" alt="Logo NextGenerationEU"
+            hspace="0" vspace="2" />
         <div style="text-align: center;">
-            <a href="https://personal.us.es/fsoler/">Fernando Soler Toscano</a> (Universidad de Sevilla) &#8212; <a href="https://orcid.org/0000-0001-6931-660X">Marcos B. López Aznar</a> (Universidad de Huelva)<br>
-        <a href="http://www.grupo.us.es/ghum609/php/">Grupo de Lógica, Lenguaje e Información</a></div>
-    </div>          
+            <a href="https://personal.us.es/fsoler/">Fernando Soler Toscano</a> (Universidad de Sevilla) &#8212; <a
+                href="https://orcid.org/0000-0001-6931-660X">Marcos B. López Aznar</a> (Universidad de Huelva)<br>
+            <a href="http://www.grupo.us.es/ghum609/php/">Grupo de Lógica, Lenguaje e Información</a>
+        </div>
     </div>
+</div>
+
 </html>
