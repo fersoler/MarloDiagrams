@@ -43,14 +43,13 @@ function testMain() {
     readSubj = readProp(inputSubj);
     readPred = readProp(inputPred);
 
-    // Set the lowercase input:
-    document.getElementById("icsubj").value = inputSubj;
-    document.getElementById("icpred").value = inputPred;
-
     if (readSubj[0] == true && readPred[0] == true) {
         var diag;
         subj = readSubj[1];
         pred = readPred[1];
+        // Set the lowercase input:
+        document.getElementById("icsubj").value = subj;
+        document.getElementById("icpred").value = pred;
         switch (document.getElementById("ictype").value) {
             case "all-all":
                 diag = new_diagram_All_All(subj, pred);
@@ -153,14 +152,13 @@ function testConv() {
         // Lowercase and trim the input:
         inputLit = document.getElementById("diaCP").value.toLowerCase().trim();
         // Read the proposition: 
-        pC = readProp(inputLit); 
-        // Correct the input:
-        document.getElementById("diaCP").value = inputLit;
-
+        pC = readProp(inputLit);         
         if (!pC[0]) {
             document.getElementById("erricsubj").innerHTML = `Error in the literal: ${pC[1]}`;
         } else {
             prop = pC[1];
+            // Lowercase the input:
+            document.getElementById("diaCP").value = prop;
             // leer proposición
             /*
             Si la proposición no está bien formada, informar
@@ -195,11 +193,11 @@ function testExt() {
         dOrig = currentDiags[nC - 1];
         inputLit = document.getElementById("extCP").value.toLowerCase().trim();
         pC = readProp(inputLit); // Literal for the extraction
-        document.getElementById("extCP").value = inputLit;
         if (!pC[0]) {
             document.getElementById("erricsubj").innerHTML = `Error in the literal: ${pC[1]}`;
         } else {
             prop = pC[1];
+            document.getElementById("extCP").value = prop;
             // leer proposición
             /*
             Si la proposición no está bien formada, informar
