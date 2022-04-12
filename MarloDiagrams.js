@@ -35,8 +35,17 @@ function testMain() {
         return;
     }
 
-    readSubj = readProp(document.getElementById("icsubj").value);
-    readPred = readProp(document.getElementById("icpred").value);
+    // Lowercase and trim subject and predicate:
+    inputSubj = document.getElementById("icsubj").value.toLowerCase().trim();
+    inputPred = document.getElementById("icpred").value.toLowerCase().trim();
+
+    // Read the propositions: 
+    readSubj = readProp(inputSubj);
+    readPred = readProp(inputPred);
+
+    // Set the lowercase input:
+    document.getElementById("icsubj").value = inputSubj;
+    document.getElementById("icpred").value = inputPred;
 
     if (readSubj[0] == true && readPred[0] == true) {
         var diag;
@@ -141,7 +150,13 @@ function testConv() {
         document.getElementById("erricpred").innerHTML = `Error: introduce the number of an existing diagram.`
     } else {
         dOrig = currentDiags[nC - 1];
-        pC = readProp(document.getElementById("diaCP").value); // Literal for the conversion
+        // Lowercase and trim the input:
+        inputLit = document.getElementById("diaCP").value.toLowerCase().trim();
+        // Read the proposition: 
+        pC = readProp(inputLit); 
+        // Correct the input:
+        document.getElementById("diaCP").value = inputLit;
+
         if (!pC[0]) {
             document.getElementById("erricsubj").innerHTML = `Error in the literal: ${pC[1]}`;
         } else {
@@ -178,7 +193,9 @@ function testExt() {
         document.getElementById("erricpred").innerHTML = `Error: introduce the number of an existing diagram.`
     } else {
         dOrig = currentDiags[nC - 1];
-        pC = readProp(document.getElementById("extCP").value); // Literal for the extraction
+        inputLit = document.getElementById("extCP").value.toLowerCase().trim();
+        pC = readProp(inputLit); // Literal for the extraction
+        document.getElementById("extCP").value = inputLit;
         if (!pC[0]) {
             document.getElementById("erricsubj").innerHTML = `Error in the literal: ${pC[1]}`;
         } else {
