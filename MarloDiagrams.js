@@ -176,7 +176,7 @@ function testConv() {
             };
         };
     };
-}
+};
 
 
 
@@ -205,8 +205,11 @@ function testExt() {
             */
             newD = extraction(dOrig, prop);
             if (newD != void (0)) {
-                addDiagram(newD, `Ext(D${nC}, ${prop})`,"");
-
+                if(newD.all.length == 0 && newD.in.length == 1 && newD.in[0].length ==0){
+                    document.getElementById("erricpred").innerHTML = `Error: diagram ${nC} becomes trivial if the proposition ${prop} is removed.`
+                } else {
+                    addDiagram(newD, `Ext(D${nC}, ${prop})`,"");
+                };
                 // Borra formulario
                 document.getElementById("extCN").value = "";
                 document.getElementById("extCP").value = "";
