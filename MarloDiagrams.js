@@ -206,7 +206,7 @@ function testExt() {
             newD = extraction(dOrig, prop);
             if (newD != void (0)) {
                 if(newD.all.length == 0 && newD.in.length == 1 && newD.in[0].length ==0){
-                    document.getElementById("erricpred").innerHTML = `Error: diagram ${nC} becomes trivial if the proposition ${prop} is removed.`
+                    document.getElementById("erricpred").innerHTML = `Error: diagram ${nC} becomes trivial if proposition ${prop} is extracted.`
                 } else {
                     addDiagram(newD, `Ext(D${nC}, ${prop})`,"");
                 };
