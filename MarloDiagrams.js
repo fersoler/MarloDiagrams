@@ -89,12 +89,15 @@ function testInf() {
     document.getElementById("erricsubj").innerHTML = "&nbsp;";
     document.getElementById("erricpred").innerHTML = "&nbsp;";
 
-    n1 = document.getElementById("dia1").value;
-    n2 = document.getElementById("dia2").value;
-
-    if (n1 == n2 || Math.max(n1, n2) > currentDiags.length) {
+    n1 = parseInt(document.getElementById("dia1").value.trim());
+    n2 = parseInt(document.getElementById("dia2").value.trim());
+    
+    if (!Number.isInteger(n1) || !Number.isInteger(n2) || 
+    n1 < 1 || n2 < 1 || n1 == n2 || Math.max(n1, n2) > currentDiags.length) {
         document.getElementById("erricpred").innerHTML = `Error: choose two different numbers of existing diagrams.`
     } else {
+        document.getElementById("dia1").innerHTML = n1;
+        document.getElementById("dia2").innerHTML = n2;
         d1 = currentDiags[n1 - 1];
         d2 = currentDiags[n2 - 1];
         if (d1.sub == d2.sub) {
@@ -118,11 +121,12 @@ function testTr() {
     document.getElementById("erricsubj").innerHTML = "&nbsp;";
     document.getElementById("erricpred").innerHTML = "&nbsp;";
 
-    nT = document.getElementById("diaT").value;
+    nT = parseInt(document.getElementById("diaT").value.trim());
 
-    if (nT > currentDiags.length) {
+    if (!Number.isInteger(nT) || nT < 1 || nT > currentDiags.length) {
         document.getElementById("erricpred").innerHTML = `Error: introduce the number of an existing diagram.`
     } else {
+        document.getElementById("diaT").value = nT;
         dT = currentDiags[nT - 1];
         newT = transformation(dT);
         if (newT != void (0)) {
@@ -143,11 +147,12 @@ function testConv() {
     document.getElementById("erricsubj").innerHTML = "&nbsp;";
     document.getElementById("erricpred").innerHTML = "&nbsp;";
 
-    nC = document.getElementById("diaCN").value; // Number of the diagram
+    nC = parseInt(document.getElementById("diaCN").value.trim()); // Number of the diagram
 
-    if (nC > currentDiags.length) {
+    if (!Number.isInteger(nC) || nC < 1 || nC > currentDiags.length) {
         document.getElementById("erricpred").innerHTML = `Error: introduce the number of an existing diagram.`
     } else {
+        document.getElementById("diaCN").value = nC;
         dOrig = currentDiags[nC - 1];
         // Lowercase and trim the input:
         inputLit = document.getElementById("diaCP").value.toLowerCase().trim();
@@ -185,11 +190,12 @@ function testExt() {
     document.getElementById("erricsubj").innerHTML = "&nbsp;";
     document.getElementById("erricpred").innerHTML = "&nbsp;";
 
-    nC = document.getElementById("extCN").value; // Number of the diagram
+    nC = parseInt(document.getElementById("extCN").value.trim()); // Number of the diagram
 
-    if (nC > currentDiags.length) {
+    if (!Number.isInteger(nC) || nC < 1 || nC > currentDiags.length) {
         document.getElementById("erricpred").innerHTML = `Error: introduce the number of an existing diagram.`
     } else {
+        document.getElementById("extCN").value = nC;
         dOrig = currentDiags[nC - 1];
         inputLit = document.getElementById("extCP").value.toLowerCase().trim();
         pC = readProp(inputLit); // Literal for the extraction
