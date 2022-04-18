@@ -267,7 +267,7 @@ function runExercise() {
                         function () {
                             addDiagram(new_diagram_All_All(datos[1], datos[2]), 
                             "Premise",otherText, color)
-                        }, i * 1000);
+                        }, i * 400);
                 })(datos, otherText, color);
                 break;
             case "new_all_some":
