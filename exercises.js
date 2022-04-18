@@ -481,11 +481,8 @@ diagExercises = [
     "Create a diagram with b and v representing «Birds are vertebrate».",
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "b", all: ["v"], in: [[]], out: ["v"]},
-    // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
-	
+    // 4. Hints with no clues
+    []],  // first example finishes	
 	// 12 EXAMPLE. FIRST WITHOUT CLUES
     // 0. Name of the example (free)
     ["Creation 12",
@@ -495,10 +492,8 @@ diagExercises = [
     "Create a diagram with p and f representing «No primates flies».",
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "p", all: ["¬f"], in: [[]], out: ["¬f"]},
-    // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
+    // 4. Hints with no clues
+    []],  // first example finishes
 	// 13 EXAMPLE. WITHOUT CLUES
     // 0. Name of the example (free)
     ["Creation 13",
@@ -509,9 +504,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "p", all: [], in: [[],["¬h"]], out: ["¬h"]},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
+    []],  // first example finishes
 	// 14 EXAMPLE. WITHOUT CLUES
     // 0. Name of the example (free)
     ["Creation 14",
@@ -522,9 +515,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "¬l", all: ["n"], in: [[]], out: ["n"]},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
+    []],  // first example finishes
 	// 15 EXAMPLE. WITHOUT CLUES
     // 0. Name of the example (free)
     ["Creation 15",
@@ -535,10 +526,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "¬d", all: ["¬f"], in: [[]], out: ["¬f"]},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
-	
+    []],  // first example finishes	
 	// 16 EXAMPLE. WITHOUT CLUES
     // 0. Name of the example (free)
     ["Creation 16",
@@ -549,10 +537,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "¬b", all: ["¬l"], in: [[]], out: ["¬l"]},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
-	
+    []],  // first example finishes	
 	// 17 EXAMPLE. WITHOUT CLUES
     // 0. Name of the example (free)
     ["Creation 17",
@@ -563,10 +548,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "¬s", all: ["f"], in: [[]], out: ["f"]},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
-	
+    []],  // first example finishes	
 	// 18 EXAMPLE. WITHOUT CLUES
     // 0. Name of the example (free)
     ["Creation 18",
@@ -577,9 +559,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "s", all: [], in: [[],["p"]], out: []},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
+    []],  // first example finishes
 	// 19 EXAMPLE. WITHOUT CLUES
     // 0. Name of the example (free)
     ["Creation 19",
@@ -590,9 +570,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "¬s", all: [], in: [[],["¬u"]], out: []},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
+    []],  // first example finishes
 	// 20 EXAMPLE. WITHOUT CLUES
     // 0. Name of the example (free)
     ["Creation 20",
@@ -603,9 +581,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "s", all: ["t"], in: [[]], out: ["t"]},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
+    []],  // first example finishes
 	// 21 EXAMPLE. WITHOUT CLUES
     // 0. Name of the example (free)
     ["Creation 21",
@@ -616,10 +592,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "¬s", all: ["¬t"], in: [[]], out: ["¬t"]},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
-	
+    []],  // first example finishes	
 	// 22 EXAMPLE
     ["Creation 22",
     // 1. Type
@@ -690,9 +663,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "l", all: ["b"], in: [[]], out: ["b"]},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
+    []],  // first example finishes
 	// 28 EXAMPLE
     ["Creation 28",
     // 1. Type
@@ -775,10 +746,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "e", all: [], in: [[],["r"]], out: []},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
-	
+    []],  // first example finishes	
 	// 35 EXAMPLE. WITHOUT CLUES
     // 0. Name of the example (free)
     ["Creation 35",
@@ -789,9 +757,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "¬e", all: ["¬r"], in: [[]], out: ["¬r"]},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
+    []],  // first example finishes
 	// 36 EXAMPLE
     ["Creation 36",
     // 1. Type
@@ -815,10 +781,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "s", all: ["m"], in: [[]], out: ["m"]},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
-	
+    []],  // first example finishes	
 	// 38 EXAMPLE
     ["Creation 38",
     // 1. Type
@@ -854,9 +817,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "h", all: ["¬p"], in: [[]], out: ["¬p"]},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
+    []],  // first example finishes
 	// 41 EXAMPLE
     ["Creation 41",
     // 1. Type
@@ -915,9 +876,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "a", all: ["b"], in: [[]], out: []},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
+    []],  // first example finishes
 		// 45 EXAMPLE. WITHOUT CLUES. MARLO NOTATION
     // 0. Name of the example (free)
     ["Creation 45",
@@ -928,9 +887,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "a", all: ["b"], in: [[]], out: ["b"]},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
+    []],  // first example finishes
 	// 46 EXAMPLE. WITHOUT CLUES. MARLO NOTATION
     // 0. Name of the example (free)
     ["Creation 46",
@@ -941,9 +898,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "a", all: ["¬b"], in: [[]], out: ["¬b"]},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
+    []],  // first example finishes
 	// 47 EXAMPLE. WITHOUT CLUES. MARLO NOTATION
     // 0. Name of the example (free)
     ["Creation 47",
@@ -954,10 +909,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "¬a", all: ["b"], in: [[]], out: ["b"]},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
-	
+    []],  // first example finishes	
 	// 48 EXAMPLE. WITHOUT CLUES. MARLO NOTATION
     // 0. Name of the example (free)
     ["Creation 48",
@@ -968,9 +920,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "a", all: [], in: [[], ["¬b"]], out: []},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
+    []],  // first example finishes
 	// 49 EXAMPLE. WITHOUT CLUES. MARLO NOTATION
     // 0. Name of the example (free)
     ["Creation 49",
@@ -981,11 +931,7 @@ diagExercises = [
     // 3. Goal diagram (the exercise ends with the user gets this diagram)
     {sub: "¬a", all: [], in: [[], ["¬b"]], out: ["¬b"]},
     // 4. Hints
-    [
-        [["all_all", "", ""], "No clues", ""]
-    ]],  // first example finishes
-	 
-	
+    []],  // first example finishes	
 	// 50 EXAMPLE. MARLO NOTATION
     // 0. Name of the example (free)
     ["Creation 50",

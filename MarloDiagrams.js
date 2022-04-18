@@ -442,59 +442,6 @@ function runExample() {
 
         };
     };
-
-    /*
-        switch(document.getElementById("exampleN").value){
-            case "barbara":
-                // all M is P
-                addDiagram(new_diagram_All_Some("m","p"),"All m are p","green");
-                // all S is M
-                setTimeout(() => {
-                    addDiagram(new_diagram_All_Some("s","m"),"All s are m","green")
-                }, 1000);
-    
-                setTimeout(() => {
-                    addDiagram(conversion(currentDiags[1],"m"),"Conv(D2,m)")
-                }, 2000);
-    
-                setTimeout(() => {
-                    addDiagram(inference(currentDiags[0],currentDiags[2]),"D1\u2295D3")
-                }, 3000);
-    
-                setTimeout(() => {
-                    addDiagram(conversion(currentDiags[3],"s"),"Conv(D4,s)")
-                }, 4000);
-    
-                setTimeout(() => {
-                    addDiagram(extraction(currentDiags[4],"m"),"Ext(D5,m): All s are p","blue")
-                }, 5000);
-                
-                break;
-            case "darii":
-                // All M is P
-                addDiagram(new_diagram_All_Some("m","p"),"All m are p","green");
-                // some S are M
-                setTimeout(() => {
-                    addDiagram(new_diagram_Some_Some("s","m"),"Some s are m","green")
-                }, 1000);
-    
-                setTimeout(() => {
-                    addDiagram(conversion(currentDiags[1],"m"),"Conv(D2,m)")
-                }, 2000);
-    
-                setTimeout(() => {
-                    addDiagram(inference(currentDiags[0],currentDiags[2]),"D1\u2295D3")
-                }, 3000);
-    
-                setTimeout(() => {
-                    addDiagram(conversion(currentDiags[3],"s"),"Conv(D4,s)")
-                }, 4000);
-    
-                setTimeout(() => {
-                    addDiagram(extraction(currentDiags[4],"m"),"Ext(D5,m): Some s are p","blue")
-                }, 5000);
-    
-        }*/
 };
 
 
