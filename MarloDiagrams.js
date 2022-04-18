@@ -276,7 +276,7 @@ function runExercise() {
                         function () {
                             addDiagram(new_diagram_All_Some(datos[1], datos[2]), 
                             "Premise",otherText, color)
-                        }, i * 1000);
+                        }, i * 400);
                 })(datos, otherText, color);
                 break;
             case "new_some_all":
@@ -285,7 +285,7 @@ function runExercise() {
                         function () {
                             addDiagram(new_diagram_Some_All(datos[1], datos[2]), 
                             "Premise",otherText, color)
-                        }, i * 1000);
+                        }, i * 400);
                 })(datos, otherText, color);
                 break;
             case "new_some_some":
@@ -294,7 +294,7 @@ function runExercise() {
                         function () {
                             addDiagram(new_diagram_Some_Some(datos[1], datos[2]), 
                             "Premise",otherText, color)
-                        }, i * 1000);
+                        }, i * 400);
                 })(datos, otherText, color);
                 break;
             case "conv":
@@ -302,7 +302,7 @@ function runExercise() {
                     setTimeout(
                         function () {
                             addDiagram(conversion(currentDiags[datos[1]-1], datos[2]),`Conv(D${datos[1]},${datos[2]})`, otherText, color);
-                        }, i * 1000);
+                        }, i * 400);
                 })(datos, otherText, color, currentDiags);
                 break;
             case "inf":
@@ -311,7 +311,7 @@ function runExercise() {
                         function () {
                             addDiagram(inference(currentDiags[datos[1]-1], currentDiags[datos[2]-1]), 
                             `D${datos[1]}\u2295D${datos[2]}`, otherText, color)
-                        }, i * 1000);
+                        }, i * 400);
                 })(datos, otherText, color, currentDiags);
                 break;
             case "ext":
@@ -319,7 +319,7 @@ function runExercise() {
                     setTimeout(
                         function () {
                             addDiagram(extraction(currentDiags[datos[1]-1], datos[2]), `Ext(D${datos[1]},${datos[2]})`, otherText, color)
-                        }, i * 1000);
+                        }, i * 400);
                 })(datos, otherText, color, currentDiags);
                 break;
             case "trans":
@@ -327,7 +327,7 @@ function runExercise() {
                     setTimeout(
                         function () {
                             addDiagram(transformation(currentDiags[datos[1]-1]), `Tr(D${datos[1]})`, otherText, color)
-                        }, i * 1000);
+                        }, i * 400);
                 })(datos, otherText, color, currentDiags);
                 break;
 
