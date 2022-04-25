@@ -24,10 +24,31 @@
 
     <script type="module">
         import PhotoSwipeLightbox from './photoswipe/photoswipe-lightbox.esm.js';
+
+        function isPhonePortrait() {
+            return window.matchMedia('(max-width: 600px) and (orientation: portrait)').matches;
+        };
+        
         const lightbox = new PhotoSwipeLightbox({
             gallery: '#tutorial--gallery',
             children: 'a',
-            initialZoomLevel: 'fit',
+            initialZoomLevel: (zoomLevelObject) => {
+                if (isPhonePortrait()) {
+                    return zoomLevelObject.vFill;
+                } else {
+                    return zoomLevelObject.fit;
+                }
+            },
+            secondaryZoomLevel: (zoomLevelObject) => {
+                if (isPhonePortrait()) {
+                return zoomLevelObject.fit;
+                } else {
+                return 1;
+                }
+            },
+
+            maxZoomLevel: 1,
+            
             pswpModule: () => import('./photoswipe/photoswipe.esm.js')
         });
         lightbox.init();
