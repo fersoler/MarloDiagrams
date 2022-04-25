@@ -27,6 +27,7 @@
         const lightbox = new PhotoSwipeLightbox({
             gallery: '#tutorial--gallery',
             children: 'a',
+            initialZoomLevel: 'fit',
             pswpModule: () => import('./photoswipe/photoswipe.esm.js')
         });
         lightbox.init();
