@@ -22,6 +22,17 @@ const inity = 80;
 var px = initx;
 var py = inity;
 
+function clearPanel(){
+    document.getElementById("panelSVG").innerHTML = "";
+    px = initx;
+    py = inity;
+    currentDiags = [];
+    exerciseNumber = -1;
+    doingExercise = false;
+    document.getElementById("panelSVG").setAttribute("height","0");
+}
+
+
 function testMain() {
     //str1 = document.getElementById("holder").innerHTML;
     //document.getElementById("holder").innerHTML = str1+
@@ -461,24 +472,24 @@ function addDiagram(newD, textShow1, textShow2, color = color1) {
         document.getElementById("exercHint").innerHTML += "<br/><div style=\"color:blue;\">Congratulations! You have solved the exercise.</div>";
         doingExercise = false;
         exerciseNumber = -1;
-    }
-
-    currentDiags[currentDiags.length] = newD;
-    panel = document.getElementById("panelSVG");
-    if (currentDiags.length <= 18) {
-        drawDiagram(newD, px, py, diagColor, panel, currentDiags.length, textShow1, textShow2);
-        if (currentDiags.length % 6 > 0) {
-            px += 250;
-        } else {
-            px = initx;
-            py += 250;
-        }
-    } else {
-        // Error
-        document.getElementById("erricsubj").innerHTML = `It is not possible to display more diagrams in the current panel.`;
     };
 
-}
+    panel = document.getElementById("panelSVG");
+
+    if(currentDiags.length % 6 == 0){
+        panel.setAttribute("height",py+150);    
+    };
+
+    currentDiags[currentDiags.length] = newD;
+    
+    drawDiagram(newD, px, py, diagColor, panel, currentDiags.length, textShow1, textShow2);
+    if ((currentDiags.length % 6) != 0) {
+        px += 250;
+    } else {        
+        px = initx;
+        py += 250; 
+    };
+};
 
 
 function readProp(theStr) {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <link type="text/css" href="base.css" rel="stylesheet">
-
+<link rel="stylesheet" href="./photoswipe/photoswipe.css">
 <head>
     <meta charset="utf-8">
     </meta>
@@ -21,6 +21,17 @@
             };
         });
     </script>
+
+    <script type="module">
+        import PhotoSwipeLightbox from './photoswipe/photoswipe-lightbox.esm.js';
+        const lightbox = new PhotoSwipeLightbox({
+            gallery: '#tutorial--gallery',
+            children: 'a',
+            pswpModule: () => import('./photoswipe/photoswipe.esm.js')
+        });
+        lightbox.init();
+    </script>
+
 </head>
 
 <body>
@@ -39,6 +50,9 @@
 
     <form>
 
+        <p><table><tr><td><table><tr><td>
+            <input type="button" class="button-13" onclick="clearPanel()" value="Clear panel" />
+        </td></tr></table></td></tr></table></p>        
         <table width="1600">
             <tr>
                 <td width="10%">
@@ -279,8 +293,65 @@
     <p>
     <div id="exercHint" class="instr"> &nbsp;</div>
     </p>
-    <div class="center"><svg height="750" width="1500" id="panelSVG"></svg></div>
+    <div class="center"><svg height="0" width="1500" id="panelSVG"></svg></div>
 
+
+<p>
+    <div class="pswp-gallery pswp-gallery--single-column" id="tutorial--gallery"></div>
+        <table style="margin-left:auto;margin-right:auto;">
+            <tr>
+                <th colspan="2" rowspan="2">
+                    <a href="./tutorial/tut01.jpg" data-pswp-width="4000" data-pswp-height="2250" target="_blank">
+                        <img src="./tutorial/tut01b.jpg" width="500" alt="">
+                    </a>
+                </th>
+                <td><a href="./tutorial/tut02.jpg" data-pswp-width="4000" data-pswp-height="2250" target="_blank">
+                    <img src="./tutorial/tut02b.jpg" width="250" alt="">
+                </a></td>
+                <td><a href="./tutorial/tut03.jpg" data-pswp-width="4000" data-pswp-height="2250" target="_blank">
+                    <img src="./tutorial/tut03b.jpg" width="250" alt="">
+                </a></td>
+            </tr>
+            <tr>
+                <td><a href="./tutorial/tut04.jpg" data-pswp-width="4000" data-pswp-height="2250" target="_blank">
+                    <img src="./tutorial/tut04b.jpg" width="250" alt="">
+                </a></td>
+                <td><a href="./tutorial/tut05.jpg" data-pswp-width="4000" data-pswp-height="2250" target="_blank">
+                    <img src="./tutorial/tut05b.jpg" width="250" alt="">
+                </a></td>
+            </tr>
+            <tr>
+                <td><a href="./tutorial/tut06.jpg" data-pswp-width="4000" data-pswp-height="2250" target="_blank">
+                    <img src="./tutorial/tut06b.jpg" width="250" alt="">
+                </a></td>
+                <td><a href="./tutorial/tut07.jpg" data-pswp-width="4000" data-pswp-height="2250" target="_blank">
+                    <img src="./tutorial/tut07b.jpg" width="250" alt="">
+                </a></td>
+                <td><a href="./tutorial/tut08.jpg" data-pswp-width="4000" data-pswp-height="2250" target="_blank">
+                    <img src="./tutorial/tut08b.jpg" width="250" alt="">
+                </a></td>
+                <td><a href="./tutorial/tut09.jpg" data-pswp-width="4000" data-pswp-height="2250" target="_blank">
+                    <img src="./tutorial/tut09b.jpg" width="250" alt="">
+                </a></td>
+            </tr>
+            <tr>
+                <td><a href="./tutorial/tut10.jpg" data-pswp-width="4000" data-pswp-height="2250" target="_blank">
+                    <img src="./tutorial/tut10b.jpg" width="250" alt="">
+                </a></td>
+                <td><a href="./tutorial/tut11.jpg" data-pswp-width="4000" data-pswp-height="2250" target="_blank">
+                    <img src="./tutorial/tut11b.jpg" width="250" alt="">
+                </a></td>
+                <td><a href="./tutorial/tut12.jpg" data-pswp-width="4000" data-pswp-height="2250" target="_blank">
+                    <img src="./tutorial/tut12b.jpg" width="250" alt="">
+                </a></td>
+                <td><a href="./tutorial/tut13.jpg" data-pswp-width="4000" data-pswp-height="2250" target="_blank">
+                    <img src="./tutorial/tut13b.jpg" width="250" alt="">
+                </a></td>
+            </tr>
+        </table>
+    </div>  
+</p>
+<p>&nbsp;</p>
 </body>
 <script type="text/javascript">
     document.onload = setExamples();
