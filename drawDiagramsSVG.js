@@ -245,7 +245,7 @@ function drawPentagonOut(dO,xp,yp,color,panel){
 };
 
 function getIntermediatePoint(p1,p2,portion){
-    px = p1[0]+portion*(p2[0]-p1[0]);
-    py = p1[1]+portion*(p2[1]-p1[1]);
-    return [px,py];
+    var ptx = p1[0]+portion*(p2[0]-p1[0]);
+    var pty = p1[1]+portion*(p2[1]-p1[1]);
+    return [ptx,pty];
 }
