@@ -350,6 +350,8 @@ function runExercise() {
 
 function runExample() {
     currentDiags = [];
+    doingExercise = false;
+    exerciseNumber = -1;
     px = initx;
     py = inity;
     document.getElementById("panelSVG").innerHTML = "";
