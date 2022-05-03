@@ -1105,7 +1105,7 @@ diagExercises = [
 	
 	// 59 EXAMPLE. MARLO NOTATION.COMPLETE THE SERIE.
     // 0. Name of the example (free)
-    ["Creation 59",
+    ["Creation 60",
     // 1. Type (important "creation" type in this kind)
     "creation", 
     // 2. Instructions (message for the user)
@@ -1122,7 +1122,7 @@ diagExercises = [
 	
 	// 59 EXAMPLE. MARLO NOTATION.COMPLETE THE SERIE.
     // 0. Name of the example (free)
-    ["Creation 59",
+    ["Creation 61",
     // 1. Type (important "creation" type in this kind)
     "creation", 
     // 2. Instructions (message for the user)
@@ -1139,7 +1139,7 @@ diagExercises = [
 	
 	// 60 EXAMPLE. MARLO NOTATION.COMPLETE THE SERIE.
     // 0. Name of the example (free)
-    ["Creation 60",
+    ["Creation 62",
     // 1. Type (important "creation" type in this kind)
     "creation", 
     // 2. Instructions (message for the user)
@@ -1156,7 +1156,7 @@ diagExercises = [
 	
 	// 61 EXAMPLE. MARLO NOTATION.COMPLETE THE SERIE.
     // 0. Name of the example (free)
-    ["Creation 61",
+    ["Creation 63",
     // 1. Type (important "creation" type in this kind)
     "creation", 
     // 2. Instructions (message for the user)
@@ -1173,7 +1173,7 @@ diagExercises = [
 	
 	// 62 EXAMPLE. MARLO NOTATION. COMPLETE THE SERIE.
     // 0. Name of the example (free)
-    ["Creation 62",
+    ["Creation 64",
     // 1. Type (important "creation" type in this kind)
     "creation", 
     // 2. Instructions (message for the user)
@@ -1240,7 +1240,7 @@ diagExercises = [
     // 1. Type
     "syllogism",
     // 2. Instructions
-    "Complete the syllogism to get «Some s are p»",
+    "Complete the syllogism to get «Some s are not p»",
     // 3. Goal diagram
     {sub: "s", all: [], in: [[],["¬p"]], out: ["¬p"]},
     // 4. Hints
@@ -1291,8 +1291,8 @@ diagExercises = [
     {sub: "s", all: [], in: [[],["¬p"]], out: ["¬p"]},
     // 4. Hints
     [
-        [["new_all_some", "s", "¬m"], "prem", "No s are m"],
-        [["new_some_some", "p", "m"], "prem", "Some p are m"],
+        [["new_all_some", "p", "¬m"], "prem", "No p are m"],
+        [["new_some_some", "s", "m"], "prem", "Some s are m"],
         [["trans",1]],
     ]],
 	
@@ -1388,8 +1388,8 @@ diagExercises = [
     {sub: "s", all: [], in: [[],["¬p"]], out: ["¬p"]},
      // 4. Hints
     [
-        [["new_some_some", "m", "¬p"], "prem", "No m are p"],
-        [["new_all_some", "m", "s"], "prem", "Some m are s"],
+        [["new_some_some", "m", "¬p"], "prem", "Some m are not p"],
+        [["new_all_some", "m", "s"], "prem", "All m are s"],
     ]],	
 	
 	// EXAMPLE BAMALIP
