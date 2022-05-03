@@ -24,6 +24,9 @@ var py = inity;
 
 function clearPanel(){
     document.getElementById("panelSVG").innerHTML = "";
+    document.getElementById("exercHint").innerHTML = "&nbsp;";
+    document.getElementById("erricsubj").innerHTML = "&nbsp;";
+    document.getElementById("erricpred").innerHTML = "&nbsp;";
     px = initx;
     py = inity;
     currentDiags = [];
